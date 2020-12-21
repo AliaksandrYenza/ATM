@@ -1,5 +1,3 @@
-ghj:123:1000
-admin:1234pass:1000
-admin:123:1000
-sasha:sasha:1000
-alex:alex:1000
+gg:ggg:2000
+alex:ale:20000
+admin:1111:9999999

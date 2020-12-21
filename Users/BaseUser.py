@@ -3,9 +3,6 @@ from Users.GetUsersInfo import GetUsersInfo
 
 class BaseUser:
 
-    def __init__(self, users_dict):
-        self.users_dict = users_dict
-
     def registration_window(self):
         print('Do u have account already?')
         have_account = input('Y/n:\n')
@@ -16,7 +13,7 @@ class BaseUser:
 
     def login_user(self):
         user_info = GetUsersInfo()
-        user_dict = user_info.read_info_from_file()
+        user_dict = user_info.do_dict_from_list()
         print('Write account name, then password')
         name = input('Account name:')
         password = input(f"Password for {name}:")
@@ -27,8 +24,9 @@ class BaseUser:
             break
         return name
 
-    def create_account(self, user_dict):
+    def create_account(self):
         get_user = GetUsersInfo()
+        user_dict = get_user.do_dict_from_list()
         print('Lets try to create new account')
         name1 = input('Write account name:\n')
         while name1 in user_dict.keys():
@@ -44,7 +42,7 @@ class BaseUser:
             print(f'Accounts password {name1} are not same\n')
             password1 = input(f'Write {name1} password:\n')
             password2 = input('Confirm password:\n')
-        get_user.write_new_user_info(name1, password1)
+        get_user.add_to_file_new_user(name1, password1)
         print(f' OK. User {name1} is created!')
 
 
